@@ -1,0 +1,9 @@
+# Données réelles : ne jamais publier
+*.sav
+*.dta
+*.RData
+*.rds
+data/reel/
+01-interet-politique/data/reel/
+.Rhistory
+.Rproj.user/

@@ -1,0 +1,288 @@
+Echantillon d'analyse : 21149 observations, 2999 personnes
+
+== 1. Modèle nul ==
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: polint ~ 1 + (1 | IDPERS)
+   Data: data_c
+
+REML criterion at convergence: 78901.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.7435 -0.6115  0.0122  0.6125  4.0538 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ IDPERS   (Intercept) 5.186    2.277   
+ Residual             1.578    1.256   
+Number of obs: 21149, groups:  IDPERS, 2999
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept) 5.480e+00  4.272e-02 2.993e+03   128.3   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+ICC = 0.767 
+
+== 2. Intercept aléatoire ==
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: polint ~ sex + cohort + age10 + log_income + polpos + eduyear +  
+    (1 | IDPERS)
+   Data: data_c
+
+REML criterion at convergence: 78518.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6580 -0.6230  0.0097  0.6226  3.9687 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ IDPERS   (Intercept) 4.597    2.144   
+ Residual             1.572    1.254   
+Number of obs: 21149, groups:  IDPERS, 2999
+
+Fixed effects:
+                  Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)      3.180e+00  3.734e-01  1.427e+04   8.517   <2e-16 ***
+sexwoman        -8.151e-01  8.118e-02  3.028e+03 -10.041   <2e-16 ***
+cohort2008-2022 -2.635e-01  2.767e-02  2.100e+04  -9.522   <2e-16 ***
+age10            2.715e-01  2.021e-02  6.091e+03  13.433   <2e-16 ***
+log_income       9.967e-04  2.874e-02  2.114e+04   0.035    0.972    
+polpos           4.674e-03  1.011e-02  2.106e+04   0.462    0.644    
+eduyear          1.455e-01  1.367e-02  2.990e+03  10.644   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) sexwmn c2008- age10  lg_ncm polpos
+sexwoman    -0.198                                   
+ch2008-2022  0.022 -0.012                            
+age10       -0.002  0.000 -0.386                     
+log_income  -0.826  0.085 -0.005 -0.174              
+polpos      -0.143  0.004  0.004  0.001 -0.002       
+eduyear     -0.505  0.022  0.009 -0.022  0.008  0.015
+
+R2 inter = 0.114  R2 intra = 0.004 
+
+== 3. Position politique affirmée ==
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: polint ~ sex + cohort + age10 + log_income + polpos + eduyear +  
+    (1 | IDPERS) + polpos_ext
+   Data: data_c
+
+REML criterion at convergence: 78525
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6618 -0.6236  0.0088  0.6229  3.9720 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ IDPERS   (Intercept) 4.597    2.144   
+ Residual             1.572    1.254   
+Number of obs: 21149, groups:  IDPERS, 2999
+
+Fixed effects:
+                  Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)      3.191e+00  3.736e-01  1.429e+04   8.540   <2e-16 ***
+sexwoman        -8.149e-01  8.118e-02  3.028e+03 -10.038   <2e-16 ***
+cohort2008-2022 -2.637e-01  2.767e-02  2.100e+04  -9.530   <2e-16 ***
+age10            2.715e-01  2.021e-02  6.091e+03  13.432   <2e-16 ***
+log_income       1.176e-03  2.874e-02  2.114e+04   0.041    0.967    
+polpos           4.845e-03  1.011e-02  2.106e+04   0.479    0.632    
+eduyear          1.455e-01  1.367e-02  2.990e+03  10.645   <2e-16 ***
+polpos_ext      -9.780e-03  1.192e-02  2.025e+04  -0.821    0.412    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) sexwmn c2008- age10  lg_ncm polpos eduyer
+sexwoman    -0.198                                          
+ch2008-2022  0.022 -0.012                                   
+age10       -0.002  0.000 -0.386                            
+log_income  -0.825  0.085 -0.005 -0.174                     
+polpos      -0.142  0.004  0.004  0.001 -0.002              
+eduyear     -0.505  0.022  0.009 -0.022  0.009  0.015       
+polpos_ext  -0.035 -0.003  0.011  0.000 -0.008 -0.021 -0.001
+
+== 4a. Régression simple ==
+
+Call:
+lm(formula = polint ~ sex + cohort + age10 + log_income + polpos + 
+    eduyear, data = data_c)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-7.297 -1.713  0.060  1.797  6.295 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      1.920241   0.330748   5.806 6.50e-09 ***
+sexwoman        -0.793218   0.035027 -22.646  < 2e-16 ***
+cohort2008-2022 -0.205259   0.036307  -5.653 1.59e-08 ***
+age10            0.250159   0.010560  23.689  < 2e-16 ***
+log_income       0.097750   0.029157   3.353 0.000802 ***
+polpos           0.028072   0.009620   2.918 0.003525 ** 
+eduyear          0.153078   0.005781  26.477  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.483 on 21142 degrees of freedom
+Multiple R-squared:  0.08959,	Adjusted R-squared:  0.08933 
+F-statistic: 346.8 on 6 and 21142 DF,  p-value: < 2.2e-16
+
+
+== 4b. Effets fixes ==
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = polint ~ cohort + age10 + log_income + polpos, 
+    data = pdat, model = "within")
+
+Unbalanced Panel: n = 2999, T = 1-15, N = 21149
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-4.6673304 -0.7607401  0.0033728  0.7662880  5.0283119 
+
+Coefficients:
+                  Estimate Std. Error t-value  Pr(>|t|)    
+cohort2008-2022 -0.2672568  0.0335973 -7.9547 1.900e-15 ***
+age10            0.2725545  0.0369334  7.3796 1.656e-13 ***
+log_income      -0.0144658  0.0309196 -0.4678    0.6399    
+polpos          -0.0031293  0.0110556 -0.2831    0.7771    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Total Sum of Squares:    28633
+Residual Sum of Squares: 28518
+R-Squared:      0.0040093
+Adj. R-Squared: -0.16076
+F-statistic: 18.2616 on 4 and 18146 DF, p-value: 5.5284e-15
+
+== 4c. Between ==
+Oneway (individual) effect Between Model
+
+Call:
+plm(formula = polint ~ sex + cohort + age10 + log_income + polpos + 
+    eduyear, data = pdat, model = "between")
+
+Unbalanced Panel: n = 2999, T = 1-15, N = 21149
+Observations used in estimation: 2999
+
+Residuals:
+   Min. 1st Qu.  Median 3rd Qu.    Max. 
+-6.2703 -1.5017  0.1137  1.5622  5.7347 
+
+Coefficients:
+                 Estimate Std. Error t-value Pr(>|t|)    
+(Intercept)      1.877322   0.877505  2.1394  0.03249 *  
+sexwoman        -0.791739   0.083085 -9.5293  < 2e-16 ***
+cohort2008-2022 -0.195377   0.106215 -1.8395  0.06595 .  
+age10            0.263207   0.025553 10.3006  < 2e-16 ***
+log_income       0.098316   0.077972  1.2609  0.20744    
+polpos           0.046004   0.024995  1.8405  0.06579 .  
+eduyear          0.145603   0.013690 10.6354  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Total Sum of Squares:    16440
+Residual Sum of Squares: 14631
+R-Squared:      0.11004
+Adj. R-Squared: 0.10826
+F-statistic: 61.6582 on 6 and 2992 DF, p-value: < 2.22e-16
+
+== 5. Within-between ==
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: polint ~ sex + cohort + mage + eage + mlinc + elinc + mpolpos +  
+    epolpos + eduyear + (1 | IDPERS)
+   Data: data_c
+
+REML criterion at convergence: 78526.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6562 -0.6236  0.0098  0.6210  3.9674 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ IDPERS   (Intercept) 4.593    2.143   
+ Residual             1.572    1.254   
+Number of obs: 21149, groups:  IDPERS, 2999
+
+Fixed effects:
+                  Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)      1.872e+00  8.752e-01  3.000e+03   2.139   0.0325 *  
+sexwoman        -7.895e-01  8.299e-02  2.991e+03  -9.513  < 2e-16 ***
+cohort2008-2022 -2.602e-01  3.205e-02  2.066e+04  -8.118 4.99e-16 ***
+mage             2.612e-01  2.553e-02  2.992e+03  10.232  < 2e-16 ***
+eage             2.677e-01  3.628e-02  1.925e+04   7.379 1.67e-13 ***
+mlinc            1.020e-01  7.795e-02  2.996e+03   1.309   0.1907    
+elinc           -1.446e-02  3.092e-02  1.815e+04  -0.468   0.6400    
+mpolpos          4.512e-02  2.500e-02  3.005e+03   1.805   0.0712 .  
+epolpos         -3.144e-03  1.106e-02  1.815e+04  -0.284   0.7761    
+eduyear          1.467e-01  1.367e-02  2.986e+03  10.726  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) sexwmn c2008- mage   eage   mlinc  elinc  mpolps epolps
+sexwoman    -0.271                                                        
+ch2008-2022 -0.022 -0.008                                                 
+mage         0.270 -0.068 -0.006                                          
+eage         0.014  0.005 -0.604  0.003                                   
+mlinc       -0.959  0.225 -0.001 -0.361  0.001                            
+elinc        0.000  0.000  0.001  0.000 -0.112  0.000                     
+mpolpos     -0.164  0.014  0.006 -0.020 -0.004  0.013  0.000              
+epolpos      0.000  0.000 -0.006  0.000  0.014  0.000 -0.005  0.000       
+eduyear     -0.239  0.027  0.002 -0.031 -0.001  0.023  0.000  0.038  0.000
+
+== 6. Courbe de croissance ==
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: polint ~ 1 + cohort + mage + eage + (1 + eage | IDPERS)
+   Data: data_c
+Control: ctrl
+
+REML criterion at convergence: 78712.1
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6584 -0.6201  0.0101  0.6201  4.0055 
+
+Random effects:
+ Groups   Name        Variance Std.Dev. Corr
+ IDPERS   (Intercept) 4.95528  2.2260       
+          eage        0.01953  0.1398   0.12
+ Residual             1.56928  1.2527       
+Number of obs: 21149, groups:  IDPERS, 2999
+
+Fixed effects:
+                  Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)      4.715e+00  9.312e-02  3.279e+03  50.639  < 2e-16 ***
+cohort2008-2022 -2.644e-01  3.216e-02  1.383e+04  -8.222  < 2e-16 ***
+mage             2.838e-01  2.466e-02  3.001e+03  11.509  < 2e-16 ***
+eage             2.688e-01  3.624e-02  3.282e+03   7.417 1.52e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) c2008- mage  
+ch2008-2022 -0.211              
+mage        -0.867 -0.006       
+eage         0.131 -0.606  0.005
+
+Test de la pente aléatoire :
+Data: data_c
+Models:
+m7: polint ~ 1 + cohort + mage + eage + (1 | IDPERS)
+m6: polint ~ 1 + cohort + mage + eage + (1 + eage | IDPERS)
+   npar   AIC   BIC logLik deviance  Chisq Df Pr(>Chisq)
+m7    6 78704 78752 -39346    78692                     
+m6    8 78708 78771 -39346    78692 0.4748  2     0.7887

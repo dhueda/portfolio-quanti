@@ -1,0 +1,49 @@
+Sorties R du travail original (données réelles du SHP, base d'événements du cours).
+Ces sorties viennent de la première exécution du travail. Les personnes non divorcées
+n'ont pas de durée dans cette base : tous les cas observés ont connu le divorce.
+
+== Courbe de survie globale ==
+n events median 0.95LCL 0.95UCL
+496 496 11.5 11 13
+
+== Courbes par sexe ==
+n events median 0.95LCL 0.95UCL
+man 215 215 11 10 13
+woman 281 281 12 11 14
+
+== Test du log-rank ==
+N Observed Expected (O-E)^2/E (O-E)^2/V
+man 215 215 210 0.1293 0.248
+woman 281 281 286 0.0947 0.248
+Chisq= 0.2 on 1 degrees of freedom, p= 0.6
+
+== Modèle de Cox 1 (sexe seul), n = 496 ==
+coef exp(coef) se(coef) z Pr(>|z|)
+SEX13woman -0.04351 0.95742 0.09117 -0.477 0.633
+exp(coef) lower .95 upper .95: 0.9574 [0.8008 ; 1.145]
+Concordance = 0.507 (se = 0.013)
+Likelihood ratio test = 0.23 on 1 df, p = 0.6
+
+== Modèle de Cox 2 (sexe, âge en 2013, âge au premier enfant, âge à la première opération), n = 277 ==
+coef exp(coef) se(coef) z Pr(>|z|)
+SEX13woman -0.057817 0.943823 0.130413 -0.443 0.65752
+AGE 0.004687 1.004698 0.014314 0.327 0.74332
+FirstChild 0.038191 1.038929 0.012584 3.035 0.00241 **
+operation 0.008632 1.008669 0.003701 2.332 0.01969 *
+exp(coef) [IC 95 %]: femme 0.9438 [0.7309 ; 1.219], AGE 1.0047 [0.9769 ; 1.033],
+FirstChild 1.0389 [1.0136 ; 1.065], operation 1.0087 [1.0014 ; 1.016]
+Concordance = 0.624 (se = 0.02)
+Likelihood ratio test = 48.88 on 4 df, p = 6e-10
+
+== Modèle de Cox 3 (stratifié par sexe), n = 277 ==
+AGE 1.005824 (p = 0.68572) ; FirstChild 1.039442 (p = 0.00212) ; operation 1.008585 (p = 0.02125)
+Concordance = 0.623 (se = 0.02)
+
+== Modèle de Cox 4 (interaction du sexe avec le temps), n = 277 ==
+SEX13woman -0.034999 (p = 0.8833)
+tt(SEX13 == "woman") -0.001676, exp(coef) 0.998326 [0.9701 ; 1.027] (p = 0.9089)
+AGE 0.004587 (p = 0.7492) ; FirstChild 0.038113 (p = 0.0025) ; operation 0.008630 (p = 0.0197)
+
+== Test de proportionnalité (résidus de Schoenfeld) ==
+Modèle 1 : SEX13 chisq 0.0206, p = 0.89 ; GLOBAL p = 0.89
+Modèle 2 : SEX13 p = 0.934 ; AGE p = 0.101 ; FirstChild p = 0.072 ; operation p = 0.737 ; GLOBAL chisq 3.58937 sur 4 df, p = 0.464

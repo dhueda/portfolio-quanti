@@ -5,6 +5,7 @@ Travaux réalisés pendant mon master en Histoire économique internationale (Un
 | Projet | Méthodes |
 |---|---|
 | [01 Intérêt politique](01-interet-politique/) | Données de panel, modèles multiniveaux, effets fixes, within-between, courbe de croissance |
+| [02 Survie au divorce](02-survie-divorce/) | Analyse de survie, Kaplan-Meier, log-rank, modèle de Cox, proportionnalité des risques |
 
 Les données soumises à licence ne sont pas publiées. Chaque projet explique comment les obtenir et fournit un jeu simulé pour faire tourner le code.
 
